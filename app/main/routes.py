@@ -36,6 +36,7 @@ def index():
     if 'room' not in session:
         session['room'] = ''
 
+
     return render_template(
      'chat.html', name=session['name'], room=session['room']
     )
