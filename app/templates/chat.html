@@ -49,21 +49,14 @@
                         text = $('#text').val();
                         $('#text').val('');
                         socket.emit('text', {msg: text});
+                        return false;
                     }
                 });
             });
-            function leave_room() {
-                socket.emit('left', {}, function() {
-                    socket.disconnect();
-
-                    // go back to the login page
-                    window.location.href = "{{ url_for('main.index') }}";
-                });
-            }
         </script>
     </head>
     <body>
         <textarea id="chat" class="chat" readonly></textarea>
-        <input id="text" class="input" placeholder="Enter your message here">
+        <textarea id="text" class="input" placeholder="Enter your message here"></textarea>
     </body>
 </html>
